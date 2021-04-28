@@ -32,14 +32,29 @@ namespace Pattern_Creator.Forms.UserForm
         }
 
         #region Custom Methods
-        private void ConfirmBlock()
+
+        /// <summary>
+        /// Hide = True, Show = False, Confirm, Remove, blockName and amount items determines of hide or show status.
+        /// </summary>
+        /// <param name="HideOrNot"></param>
+        private void DetermineStatusOfItems(bool HideOrNot)
         {
-            blockName_label.Text = blockName_combobox.Text;
-            amount_label.Text = amount_textBox.Text;
-            confirm_iconbutton.Dispose();
-            remove_iconbutton.Dispose();
-            blockName_combobox.Dispose();
-            amount_textBox.Dispose();
+            if (HideOrNot)
+            {
+                blockName_label.Text = blockName_combobox.Text;
+                amount_label.Text = amount_textBox.Text;
+                confirm_iconbutton.Visible = false;
+                remove_iconbutton.Visible = false;
+                blockName_combobox.Visible = false;
+                amount_textBox.Visible = false;
+            }
+            else
+            {
+                confirm_iconbutton.Visible = true;
+                remove_iconbutton.Visible = true;
+                blockName_combobox.Visible = true;
+                amount_textBox.Visible = true;
+            }
         }
 
         private void ChangeImage(int id)
@@ -62,10 +77,8 @@ namespace Pattern_Creator.Forms.UserForm
 
         private void confirm_iconbutton_Click(object sender, EventArgs e)
         {
-            ConfirmBlock();
+            DetermineStatusOfItems(true);
         }
-
-        #endregion
 
         private void remove_iconbutton_Click(object sender, EventArgs e)
         {
@@ -78,5 +91,12 @@ namespace Pattern_Creator.Forms.UserForm
             if (index > -1)
                 ChangeImage(index);
         }
+
+        private void editMode_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (editMode_checkBox.Checked)
+                DetermineStatusOfItems(false);
+        }
+        #endregion
     }
 }

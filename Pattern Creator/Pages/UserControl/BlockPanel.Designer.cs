@@ -37,6 +37,7 @@ namespace Pattern_Creator.Forms.UserForm
             this.confirm_iconbutton = new FontAwesome.Sharp.IconButton();
             this.remove_iconbutton = new FontAwesome.Sharp.IconButton();
             this.amount_label = new System.Windows.Forms.Label();
+            this.editMode_checkBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.blockPic_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,16 +67,17 @@ namespace Pattern_Creator.Forms.UserForm
             this.blockName_combobox.FormattingEnabled = true;
             this.blockName_combobox.Location = new System.Drawing.Point(68, 17);
             this.blockName_combobox.Name = "blockName_combobox";
-            this.blockName_combobox.Size = new System.Drawing.Size(208, 30);
+            this.blockName_combobox.Size = new System.Drawing.Size(226, 30);
             this.blockName_combobox.TabIndex = 2;
             this.blockName_combobox.SelectedIndexChanged += new System.EventHandler(this.blockName_combobox_SelectedIndexChanged);
             // 
             // amount_textBox
             // 
-            this.amount_textBox.Location = new System.Drawing.Point(282, 18);
+            this.amount_textBox.Location = new System.Drawing.Point(300, 18);
             this.amount_textBox.Name = "amount_textBox";
             this.amount_textBox.Size = new System.Drawing.Size(63, 29);
             this.amount_textBox.TabIndex = 3;
+            this.amount_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.amount_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // confirm_iconbutton
@@ -115,17 +117,31 @@ namespace Pattern_Creator.Forms.UserForm
             // amount_label
             // 
             this.amount_label.AutoSize = true;
-            this.amount_label.Location = new System.Drawing.Point(282, 20);
+            this.amount_label.Location = new System.Drawing.Point(304, 20);
             this.amount_label.Name = "amount_label";
-            this.amount_label.Size = new System.Drawing.Size(59, 22);
+            this.amount_label.Size = new System.Drawing.Size(52, 22);
             this.amount_label.TabIndex = 5;
-            this.amount_label.Text = "label1";
+            this.amount_label.Text = "some";
+            // 
+            // editMode_checkBox
+            // 
+            this.editMode_checkBox.AutoSize = true;
+            this.editMode_checkBox.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.editMode_checkBox.Location = new System.Drawing.Point(68, 45);
+            this.editMode_checkBox.Name = "editMode_checkBox";
+            this.editMode_checkBox.Size = new System.Drawing.Size(97, 21);
+            this.editMode_checkBox.TabIndex = 6;
+            this.editMode_checkBox.Text = "Edit Mode";
+            this.editMode_checkBox.UseVisualStyleBackColor = true;
+            this.editMode_checkBox.Visible = false;
+            this.editMode_checkBox.CheckedChanged += new System.EventHandler(this.editMode_checkBox_CheckedChanged);
             // 
             // BlockPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.editMode_checkBox);
             this.Controls.Add(this.remove_iconbutton);
             this.Controls.Add(this.confirm_iconbutton);
             this.Controls.Add(this.amount_textBox);
@@ -152,5 +168,6 @@ namespace Pattern_Creator.Forms.UserForm
         private FontAwesome.Sharp.IconButton confirm_iconbutton;
         private FontAwesome.Sharp.IconButton remove_iconbutton;
         private System.Windows.Forms.Label amount_label;
+        private System.Windows.Forms.CheckBox editMode_checkBox;
     }
 }

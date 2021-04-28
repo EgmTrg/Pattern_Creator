@@ -10,6 +10,7 @@ namespace Pattern_Creator
     public partial class MainForm : Form
     {
         private ArrayList blockPanels = new ArrayList();
+        private bool editModeStatus = false;
         #region Drag Region
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -44,9 +45,14 @@ namespace Pattern_Creator
                 InformationScreen();
             if (e.KeyCode == Keys.F2)
             {
-                BlockPanel bPanel = new BlockPanel();
-                fpanel.Controls.Add(bPanel);
-                blockPanels.Add(bPanel);
+                if (!editModeStatus)
+                {
+                    BlockPanel bPanel = new BlockPanel();
+                    fpanel.Controls.Add(bPanel);
+                    blockPanels.Add(bPanel);
+                }
+                else
+                    MessageBox.Show("Please turn off edit mode!", "Edit mode is active.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (e.KeyCode == Keys.F3)
                 new AddBlock().Show();
@@ -54,6 +60,23 @@ namespace Pattern_Creator
                 Application.Exit();
             if (e.KeyCode == Keys.F5)
                 DeleteEveryBlockPanel();
+            if (e.KeyCode == Keys.F6)
+            {
+                if (editModeStatus) editModeStatus = false;
+                else editModeStatus = true;
+
+                foreach (BlockPanel panel in blockPanels)
+                {
+                    Control[] checkBoxes = panel.Controls.Find("editMode_checkBox", false);
+                    if (checkBoxes.Length > 0)
+                        if (checkBoxes[0].Visible)
+                            checkBoxes[0].Visible = false;
+                        else
+                            checkBoxes[0].Visible = true;
+                    else
+                        MessageBox.Show("I dont know why happing like that. Please report to me",MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void InformationScreen()
@@ -73,10 +96,10 @@ namespace Pattern_Creator
             {
                 foreach (BlockPanel panel in blockPanels)
                     panel.Dispose();
-            blockPanels.Clear();
+                blockPanels.Clear();
             }
         }
 
-        
+
     }
 }
