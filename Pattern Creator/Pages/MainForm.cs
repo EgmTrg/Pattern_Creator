@@ -74,7 +74,7 @@ namespace Pattern_Creator
                         else
                             checkBoxes[0].Visible = true;
                     else
-                        MessageBox.Show("I dont know why happing like that. Please report to me",MessageBoxButtons.OK);
+                        MessageBox.Show("I dont know why happing like that. Please report to me", "I dont know why", MessageBoxButtons.OK);
                 }
             }
         }
