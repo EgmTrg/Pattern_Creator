@@ -85,7 +85,8 @@ namespace Pattern_Creator
                             "F2 : Adding a new block box.\n" +
                             "F3 : Opening a new Window for add block to database.\n" +
                             "F4 : Exit\n" +
-                            "F5 : Destroy All Blocks",
+                            "F5 : Destroy All Blocks\n" +
+                            "F6 : Edit Mode",
                             "Information",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

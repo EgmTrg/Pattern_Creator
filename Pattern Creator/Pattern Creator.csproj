@@ -27,8 +27,8 @@
     <ProductName>Pattern Creator %28For Minecraft%29</ProductName>
     <PublisherName>EgmTrg</PublisherName>
     <SuiteName>EgmTrg</SuiteName>
-    <ApplicationRevision>7</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>1.0.0.8</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -124,7 +124,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools.cs" />
+    <Compile Include="Scripts\Tools.cs" />
     <EmbeddedResource Include="Pages\AddBlock.resx">
       <DependentUpon>AddBlock.cs</DependentUpon>
     </EmbeddedResource>
