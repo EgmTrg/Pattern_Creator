@@ -87,9 +87,17 @@ namespace Pattern_Creator.Forms.UserForm
 
         private void blockName_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = Convert.ToInt32(blockName_combobox.SelectedValue);
-            if (index > -1)
-                ChangeImage(index);
+            try
+            {
+                int index = Convert.ToInt32(blockName_combobox.SelectedValue);
+                if (index > -1)
+                    ChangeImage(index);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error");
+            }
+            
         }
 
         private void editMode_checkBox_CheckedChanged(object sender, EventArgs e)
