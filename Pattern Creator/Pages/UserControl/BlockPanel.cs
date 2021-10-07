@@ -93,11 +93,7 @@ namespace Pattern_Creator.Forms.UserForm
                 if (index > -1)
                     ChangeImage(index);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,"Error");
-            }
-            
+            catch { }
         }
 
         private void editMode_checkBox_CheckedChanged(object sender, EventArgs e)
